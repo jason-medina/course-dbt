@@ -38,3 +38,22 @@ ReadMe file for short question and answers
 --from( select extract(hour from created_at),session_id, count(0) hourly_session_count 
 --from events group by extract(hour from created_at), session_id
 --) average_session_order
+
+-- Self review questions
+Part 2: Were you able to create schema.yml files with model names and descriptions? Y/N
+    --created for free in week 0 set up
+
+Part 2: Were you able to run your dbt models against the data warehouse? Y/N
+    --uncommented model one to enforce no nulls as seen in week 1 video
+
+Part 3: Could you run the queries to answer key questions from the project instructions? Y/N
+    --included answers above
+
+Reflection: What was most challenging/surprising in completing this week’s project?
+    --knowing what is sufficent for data explorations, definitions and documentation
+    --helpful when purchases defined
+
+Reflection: Is there anywhere you are still stuck or confused? Or Is there a particular part of the project where you want focused feedback from your reviewers?
+    --videos very helpful
+    --version control and commits, getting 8081 error after stopping work space first time
+    --no exertnal blockers
