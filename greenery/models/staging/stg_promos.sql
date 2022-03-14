@@ -1,3 +1,16 @@
+{{
+    config(
+        materialized = 'table'
+    )
+}}
+
+SELECT
+    promo_id,
+    discount
+    status
+FROM {{source('greenery','promos')}}
+
+/*
 CREATE TABLE promos (
   -- Each unique promocode on platform
   promo_id VARCHAR(256) PRIMARY KEY,
@@ -5,4 +18,4 @@ CREATE TABLE promos (
   discount INTEGER,
   -- Is the promo code active or disabled
   status VARCHAR(128)
-);
+);*/

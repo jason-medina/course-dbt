@@ -1,4 +1,23 @@
-CREATE TABLE users (
+{{
+    config(
+        materialized = 'table'
+    )
+}}
+
+SELECT
+    user_id,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    created_at,
+    updated_at,
+    address_id,
+    status
+FROM {{source('greenery','orders')}}
+
+
+/*CREATE TABLE users (
   -- UUID for each unique user on platform
   user_id VARCHAR(256) PRIMARY KEY,
   -- first name of the user
@@ -15,4 +34,4 @@ CREATE TABLE users (
   updated_at TIMESTAMP,
   -- default delivery address for the user
   address_id VARCHAR(256) REFERENCES addresses(address_id)
-);
+);*/

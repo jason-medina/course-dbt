@@ -1,4 +1,23 @@
-CREATE TABLE events(
+{{
+  config(
+    materialized = 'table'
+  )
+}}
+
+SELECT 
+    event_id,
+    session_id,
+    user_id,
+    page_url,
+    created_at,
+    event_type,
+    order_id,
+    product_id
+
+FROM {{ source('greenery', 'events') }}
+
+
+/*CREATE TABLE events(
   -- UUID of each unique event on the platform
   event_id VARCHAR(256) PRIMARY KEY,
   -- UUID of each browsing session on the platform which can contain many events
@@ -15,4 +34,4 @@ CREATE TABLE events(
   order_id VARCHAR(256) REFERENCES orders(order_id),
   -- If the event is specific to a product
   product_id VARCHAR(256) REFERENCES products(product_id)
-);
+);*/

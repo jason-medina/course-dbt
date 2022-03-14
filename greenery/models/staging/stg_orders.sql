@@ -1,4 +1,26 @@
-CREATE TABLE orders (
+{{
+    config(
+        materialized = 'table'
+    )
+}}
+
+SELECT
+    order_id,
+    promo_id,
+    user_id,
+    address_id,
+    created_at,
+    order_cost,
+    shipping_cost,
+    order_total,
+    tracking_id,
+    shipping_service,
+    estimated_delivery_at,
+    delivered_at,
+    status
+FROM {{source('greenery','orders')}}
+
+/*CREATE TABLE orders (
   -- UUID for each unique order on platform
   order_id VARCHAR(256) PRIMARY KEY,
   -- UserId of the user that placed this order
@@ -25,4 +47,4 @@ CREATE TABLE orders (
   delivered_at TIMESTAMP,
   -- Status of the order
   status VARCHAR(128)
-);
+);*/
