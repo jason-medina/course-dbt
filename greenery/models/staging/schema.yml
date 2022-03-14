@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: Demographics about each customer
+  - name: stg_events
+    description: Website events
+  - name: stg_order_items
+    description: Detailed order information at product level
+  - name: stg_orders
+    description: Aggregate order information at order level
+  - name: stg_products
+    description: Product catalog
+  - name: stg_promos
+    description: Marketing campaign promotions
+  - name: stg_users
+    description: Demographics about each user

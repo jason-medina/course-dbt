@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+
+  - name: tutorial # name of the source 
+    schema: public # this is the schema our raw data lives in
+    database: dbt # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: addresses 
+        loaded_at_field: address_id
+        description: >
+          Contains demographic information about each user
+      - name: users 
+        loaded_at_field: updated_at
+        description: >
+          Contains user information
+      - name: promos 
+        loaded_at_field: promo_id
+        description: >
+          Contains marketing promo detail
+      - name: products 
+        loaded_at_field: product_id
+        description: >
+          Contains product details
+      - name: orders 
+        loaded_at_field: created_at
+        description: >
+          Contains aggregate order information
+      - name: order_items
+        loaded_at_field: order_id
+        description: >
+          Contains detail order information
+      - name: events 
+        loaded_at_field: created_at
+        description: >
+          Contains site event session information
