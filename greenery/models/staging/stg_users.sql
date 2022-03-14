@@ -12,9 +12,8 @@ SELECT
     phone_number,
     created_at,
     updated_at,
-    address_id,
-    status
-FROM {{source('greenery','orders')}}
+    address_id
+FROM {{source('greenery','users')}}
 
 
 /*CREATE TABLE users (
