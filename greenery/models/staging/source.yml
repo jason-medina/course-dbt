@@ -2,7 +2,7 @@ version: 2
 
 sources:
 
-  - name: tutorial # name of the source 
+  - name: greenery # name of the source 
     schema: public # this is the schema our raw data lives in
     database: dbt # this is the name of our database
 
@@ -17,7 +17,6 @@ sources:
 
     tables:
       - name: addresses 
-        loaded_at_field: address_id
         description: >
           Contains demographic information about each user
       - name: users 
@@ -25,11 +24,9 @@ sources:
         description: >
           Contains user information
       - name: promos 
-        loaded_at_field: promo_id
         description: >
           Contains marketing promo detail
       - name: products 
-        loaded_at_field: product_id
         description: >
           Contains product details
       - name: orders 
@@ -37,7 +34,6 @@ sources:
         description: >
           Contains aggregate order information
       - name: order_items
-        loaded_at_field: order_id
         description: >
           Contains detail order information
       - name: events 
