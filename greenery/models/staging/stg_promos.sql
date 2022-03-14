@@ -5,17 +5,7 @@
 }}
 
 SELECT
-    promo_id,
-    discount
-    status
+    promo_id,   -- Each unique promocode on platform
+    discount,    -- Absolute dollar amount that is given off with the code
+    status      -- Is the promo code active or disabled
 FROM {{source('greenery','promos')}}
-
-/*
-CREATE TABLE promos (
-  -- Each unique promocode on platform
-  promo_id VARCHAR(256) PRIMARY KEY,
-  -- Absolute dollar amount that is given off with the code
-  discount INTEGER,
-  -- Is the promo code active or disabled
-  status VARCHAR(128)
-);*/

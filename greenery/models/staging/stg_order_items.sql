@@ -5,18 +5,18 @@
 }}
 
 SELECT
-    order_id,
-    product_id,
-    quantity
+    order_id,       -- OrderId of this order, REFERENCES orders(order_id)
+    product_id,     -- ProductId of a single item in this order, REFERENCES products(product_id)
+    quantity        -- Number of units of the product in this order
 FROM {{source('greenery','order_items')}}
 
 
 /*CREATE TABLE order_items (
-  -- OrderId of this order
-  order_id VARCHAR(256) REFERENCES orders(order_id),
-  -- ProductId of a single item in this order
-  product_id VARCHAR(256) REFERENCES products(product_id),
-  -- Number of units of the product in this order
+  
+  order_id VARCHAR(256) 
+  
+  product_id VARCHAR(256) ,
+  
   quantity INTEGER,
   PRIMARY KEY(order_id, product_id)
 );*/

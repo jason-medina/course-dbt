@@ -3,15 +3,42 @@ version: 2
 models:
   - name: stg_addresses
     description: Demographics about each customer
+    columns:
+      - name: address_id
+        tests:
+          - unique
   - name: stg_events
     description: Website events
+    columns:
+      - name: event_id
+        tests:
+          - unique
   - name: stg_order_items
     description: Detailed order information at product level
   - name: stg_orders
     description: Aggregate order information at order level
+    columns:
+      - name: order_id
+        tests:
+          - unique
   - name: stg_products
     description: Product catalog
+    columns:
+      - name: product_id
+        tests:
+          - unique
   - name: stg_promos
     description: Marketing campaign promotions
+    columns:
+      - name: promo_id
+        tests:
+          - unique
+      - name: discount
+        tests:
+          - positive_values
   - name: stg_users
     description: Demographics about each user
+    columns:
+      - name: user_id
+        tests:
+          - unique

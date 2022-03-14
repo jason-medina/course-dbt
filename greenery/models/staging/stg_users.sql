@@ -5,14 +5,14 @@
 }}
 
 SELECT
-    user_id,
-    first_name,
-    last_name,
-    email,
-    phone_number,
-    created_at,
-    updated_at,
-    address_id
+    user_id,        -- UUID for each unique user on platform
+    first_name,     -- first name of the user
+    last_name,      -- last name of the user
+    email,          -- email address of the user
+    phone_number,   -- phone number of the user
+    created_at,     -- timestamp the user was created
+    updated_at,     -- timestamp the user was last updated
+    address_id      -- default delivery address for the user
 FROM {{source('greenery','users')}}
 
 
