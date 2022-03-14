@@ -2,33 +2,44 @@
 ## Build staging models
 
 
-1. How many users do we have? - 130 distinct user id
+1. How many users do we have? **130 distinct user id**
 
->`select count(distinct user_id) from dbt_jason_m.stg_users`
+~~~~sql
+select count(distinct user_id) 
+from dbt_jason_m.stg_users
+~~~~
 
-2. On average, how many orders do we receive per hour? - 15 orders per hour
+2. On average, how many orders do we receive per hour? **15 orders per hour**
 
->`with average_hourly_order 
-as( 
+~~~~sql
+with average_hourly_order as( 
 select extract(hour from created_at), count(0) hourly_order_count 
-from dbt_jason_m.stg_orders group by extract(hour from created_at)) 
-select avg(hourly_order_count) from average_hourly_order`
+from dbt_jason_m.stg_orders 
+group by extract(hour from created_at)
+) 
+select avg(hourly_order_count) 
+from average_hourly_order`
+~~~~
 
-3. On average, how long does an order take from being placed to being delivered? - 3.89 days on average to deliver
+3. On average, how long does an order take from being placed to being delivered? **3.89 days on average to deliver**
 
->`with avg_days_to_deliver as (
+~~~~sql
+with avg_days_to_deliver as (
 select order_id, extract(day from max(delivered_at)-min(created_at)) days_to_deliver 
 from dbt_jason_m.stg_orders 
 where delivered_at is not null
 group by order_id
 )
 select avg(days_to_deliver) 
-from avg_days_to_deliver`
+from avg_days_to_deliver
+~~~~
 
 
 4. How many users have only made one purchase? Two purchases? Three+ purchases? -- one purchase 25 two purchase 28 more than two purchase 71
 
->`with order_count_by_user as (
+
+~~~~sql
+with order_count_by_user as (
 select user_id, count(distinct order_id) orders_placed
 from dbt_jason_m.stg_orders 
 group by user_id
@@ -42,7 +53,8 @@ select
   sum(case when orders_placed = 1 then pur_freq end) one_pur
 , sum(case when orders_placed = 2 then pur_freq end) two_pur
 , sum(case when orders_placed > 2 then pur_freq end) mt_two_pur 
-from order_freq`
+from order_freq
+~~~~
 
 --Note: you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
 
@@ -50,7 +62,8 @@ from order_freq`
 
 >`with average_session_counts as (
 select extract(hour from created_at),session_id, count(0) hourly_session_count 
-from dbt_jason_m.stg_events group by extract(hour from created_at), session_id)
+from dbt_jason_m.stg_events 
+group by extract(hour from created_at), session_id)
 select avg(hourly_session_count)
 from average_session_counts`
 
