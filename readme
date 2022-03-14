@@ -7,7 +7,7 @@ ReadMe file for short question and answers
 select count(0) 
 from 
 ( 
-select distinct user_id from users
+select distinct user_id from dbt_jason_m.stg_users
 ) uu_count
 
 --On average, how many orders do we receive per hour? 
@@ -17,7 +17,7 @@ select avg(hourly_order_count)
 from 
 ( 
 select extract(hour from created_at), count(0) hourly_order_count 
-from orders 
+from dbt_jason_m.stg_orders 
 group by extract(hour from created_at)
 ) average_hourly_order
 
@@ -28,7 +28,7 @@ select avg(days_to_deliver)
 from 
 ( select order_id, extract(day from max(delivered_at)-min(created_at)
 ) days_to_deliver 
-from orders 
+from dbt_jason_m.stg_orders 
 where delivered_at is not null
 group by order_id
 ) avg_days_to_deliver
@@ -45,7 +45,7 @@ from (
 select orders_placed,count(0) pur_freq 
 from (
 select user_id, count(distinct order_id) orders_placed
-from orders 
+from dbt_jason_m.stg_orders 
 group by user_id) order_count_by_user
 group by orders_placed
 ) order_freq
@@ -55,7 +55,7 @@ group by orders_placed
 --On average, how many unique sessions do we have per hour?
 --select avg(hourly_session_count),max(hourly_session_count),min(hourly_session_count) 
 --from( select extract(hour from created_at),session_id, count(0) hourly_session_count 
---from events group by extract(hour from created_at), session_id
+--from dbt_jason_m.stg_events group by extract(hour from created_at), session_id
 --) average_session_order
 
 -- Self review questions
@@ -73,6 +73,7 @@ Reflection: What was most challenging/surprising in completing this week’s pro
     --helpful when purchases defined
 
 Reflection: Is there anywhere you are still stuck or confused? Or Is there a particular part of the project where you want focused feedback from your reviewers?
-    --videos very helpful
+    --code review helped confirm project and staging tables missing
+    --videos very helpful to identify and review when stuck
     --version control and commits, getting 8081 error after stopping work space first time
     --no exertnal blockers
