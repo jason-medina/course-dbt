@@ -60,23 +60,24 @@ from
   dbt_jason_m.stg_orders 
 group by 
   user_id
-),
-order_freq as 
-(
-select 
-  orders_placed,
+)
+
+select
+  case 
+    when orders_placed = 1 then 'One purchase'
+    when orders_placed = 2 then 'Two purchases'
+    when orders_placed > 2 then 'Three or more purchases'
+    end orders_placed,
   count(0) pur_freq 
 from 
   order_count_by_user
 group by 
-  orders_placed
-)
-select 
-  sum(case when orders_placed = 1 then pur_freq end) one_pur
-, sum(case when orders_placed = 2 then pur_freq end) two_pur
-, sum(case when orders_placed > 2 then pur_freq end) mt_two_pur 
-from 
-  order_freq
+  case 
+    when orders_placed = 1 then 'One purchase'
+    when orders_placed = 2 then 'Two purchases'
+    when orders_placed > 2 then 'Three or more purchases'
+    end
+  order by count(0) desc
 ~~~~
 
 --Note: you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
