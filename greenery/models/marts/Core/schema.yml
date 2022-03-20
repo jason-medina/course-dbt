@@ -171,18 +171,12 @@ models:
       - name: promo_id
         description: >
           PromoId if any was used in the order. 
-        tests:
-          - relationships:
-                to: ref('stg_promos')
-                field: promo_id 
+        tests: 
       - name: address_id
         description: >
           Delivery address for this order.
         tests:
           - not_null
-          - relationships:
-                to: ref('stg_addresses')
-                field: address_id
       - name: product_id
         description: >
           ProductId of a single item in this order.
