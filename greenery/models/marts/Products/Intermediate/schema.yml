@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_sessions_events_agg
+  - name: int_event_type_lta
     description: >
       Intermediate model to have events aggregate by user and sessions.
     columns:

@@ -6,9 +6,9 @@
 
 with stg_events as (
     select * from {{ ref('stg_events') }}
-)
+),
 
-renamed_casted AS (  # try different name on recast
+renamed_casted AS (
     SELECT
         event_id
         , session_id

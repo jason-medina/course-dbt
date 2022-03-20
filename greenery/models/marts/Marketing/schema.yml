@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: agg_users_orders
+  - name: user_order_facts
     description: >
       All info for each user in Greneery and the orders related with the users.
     columns:
