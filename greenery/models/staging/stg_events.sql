@@ -1,6 +1,8 @@
 {{
   config(
-    materialized = 'table'
+    materialized = 'table',
+    sort = ['created_at','event_type'],
+    dist= 'auto'
   )
 }}
 

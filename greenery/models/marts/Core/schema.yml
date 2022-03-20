@@ -164,10 +164,7 @@ models:
         description: >
           UserId of the user that placed this order.
         tests:
-          - not_null
-          - relationships:
-                to: ref('stg_users')
-                field: user_id    
+          - not_null 
       - name: promo_id
         description: >
           PromoId if any was used in the order. 
@@ -182,9 +179,6 @@ models:
           ProductId of a single item in this order.
         tests:
           - not_null
-          - relationships:
-                to: ref('stg_products')
-                field: product_id
       - name: created_at_utc
         description: >
           Timestamp when the order was created (UTC).
