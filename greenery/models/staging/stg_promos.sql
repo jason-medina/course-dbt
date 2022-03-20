@@ -4,9 +4,18 @@
     )
 }}
 
-SELECT
-    promo_id,                           -- Each unique promocode on platform
-    'Placeholder' as name_promo,        -- Name of the promo
-    discount,                           -- Absolute dollar amount that is given off with the code
-    status                              -- Is the promo code active or disabled
-FROM {{source('greenery','promos')}}
+WITH src_promos AS (
+    SELECT * 
+    FROM {{ ref('base_promos') }}
+    ),
+
+renamed_casted AS (
+    SELECT
+    promo_id
+    , name_promo
+    , total_discount_usd
+    , status_promo
+    FROM src_promos
+    )
+
+SELECT * FROM renamed_casted

@@ -9,6 +9,8 @@ with stg_users as (select * from {{ ref('stg_users') }})
 select 
     user_id,
     address_id,
+    email,
+    phone_number,
     user_email_domain,
     full_name,
     first_name,

@@ -9,9 +9,11 @@ SELECT
     first_name,     -- first name of the user
     last_name,      -- last name of the user
     email,          -- email address of the user
+    split_part(email, '@', 2) as user_email_domain, -- ref: idea from xavierm512
+    first_name || ' ' || last_name as full_name,
     phone_number,   -- phone number of the user
-    created_at,     -- timestamp the user was created
-    updated_at,     -- timestamp the user was last updated
+    created_at AS created_at_utc,     -- timestamp the user was created
+    updated_at AS updated_at_utc,     -- timestamp the user was last updated
     address_id      -- default delivery address for the user
 FROM {{source('greenery','users')}}
 

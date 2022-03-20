@@ -16,8 +16,8 @@ select
     created_at_utc,
     tracking_id,
     order_cost,
-    shipping_cost,
-    order_total,
+    shipping_cost AS shipping_cost_usd,
+    order_total AS total_order_cost_usd,
     shipping_service,
     estimated_delivery_at_utc,
     delivered_at_utc

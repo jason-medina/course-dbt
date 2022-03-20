@@ -65,7 +65,9 @@ models:
       - name: promo_id        # Each unique promocode on platform
         tests:
           - unique
-      - name: discount
+      - name: name_promo
+      - name: status_promo
+      - name: total_discount_usd
         tests:
           - positive_values
       - name: status          # Is the promo code active or disabled
@@ -78,7 +80,9 @@ models:
       - name: first_name      # first name of the user
       - name: last_name       # last name of the user
       - name: email           # email address of the user
+      - name: full_name       # concat first last name
+      - name: user_email_domain # split part to get email domain from email
       - name: phone_number    # phone number of the user
-      - name: created_at      # timestamp the user was created
-      - name: updated_at      # timestamp the user was last updated
+      - name: created_at_utc      # timestamp the user was created
+      - name: updated_at_utc      # timestamp the user was last updated
       - name: address_id      # default delivery address for the user
