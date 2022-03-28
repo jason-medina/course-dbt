@@ -59,15 +59,9 @@ PART 5: After improving our project with all the things that we have learned abo
 Show (using dbt docs and the model DAGs) how you have simplified or improved a DAG using macros and/or dbt packages.
 
 
+  
+![image](https://user-images.githubusercontent.com/20348624/160310075-31fd29ae-662c-4ca9-9e03-4e291047642e.png)
 
-
-
-
-Paste in an image of your DAG from the docs. These commands will help you see the full DAG
-$ dbt docs generate 
-$ dbt docs serve --no-browser
-
-![image](https://user-images.githubusercontent.com/20348624/159183904-0544dda0-d708-48f0-be45-5d837d276bae.png)
 
 Submission Instructions
 
