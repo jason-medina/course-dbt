@@ -82,15 +82,15 @@ Part 1: Were you able to create new models to answer the data questions on conve
 
 Part 2: Were you able to add a new macro to your dbt project? Y
 
-Part 3: Were you able to add a post hook to your project to apply grants to the role “reporting”? Y/N
+Part 3: Were you able to add a post hook to your project to apply grants to the role “reporting”? N
 
-Part 4: Were you able to install a package? Y/N (indicate what package you used)
+Part 4: Were you able to install a package? Y/N (indicate what package you used) Y, dbt utils, dbt codegen
 
-What was most challenging/surprising in completing this week’s project?
+What was most challenging/surprising in completing this week’s project? Attempted to create macro similar to get column values
 
-Is there anywhere you are still stuck or confused? Or Is there a particular part of the project where you want focused feedback from your reviewers?
+Is there anywhere you are still stuck or confused? Or Is there a particular part of the project where you want focused feedback from your reviewers? Readability and chances for new macro.  I did not create any product conversion models, but did attempt to create a macro to replace product sessions and product purchases with a select coulmn_name, count(distinct value) which felt similar to a get column values.  Should I be using dbt utils or another similar package? Or create new model?  Appreciate feedback as always. 
 
-What are you most proud of about your project?
+What are you most proud of about your project?  I am proud to be outside my comfortzone and testing myself.  Learning the language of DBT and thinking of real world macro use cases (such as converting SQL dialect) help rethink current work projects. 
 
 --
 When your partners post their projects, please peer review it by answering the following questions via a threaded reply on their Slack post (due EOD Monday)
