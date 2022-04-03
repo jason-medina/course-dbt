@@ -1,4 +1,4 @@
-Week 4 
+#Week 4 assignment
 
 Part 1. dbt Snapshots
 
@@ -15,3 +15,9 @@ Run dbt snapshot again and see how the data has changed
   
 Part 2. Modeling challenge
 ![image](https://user-images.githubusercontent.com/20348624/161450807-52f74ce0-1c18-49e8-b298-ebb635e08c43.png)
+
+###How are our users moving through the product funnel?
+From page view (578) to carts (467), and carts to checkout (361).  
+
+###Which steps in the funnel have largest drop off points? Carts to checkout has the largest drop at 29%. 
+
